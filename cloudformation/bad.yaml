@@ -1,0 +1,81 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Deliberately non-compliant stack
+Resources:
+  DataBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: acme-cfn-data
+      AccessControl: PublicRead
+  AdminSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: open admin
+      VpcId: vpc-0123456789abcdef0
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 3389
+          ToPort: 3389
+          CidrIp: 0.0.0.0/0
+  MainDb:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceClass: db.t3.medium
+      Engine: mysql
+      AllocatedStorage: "20"
+      MasterUsername: admin
+      MasterUserPassword: ChangeMe123!
+      StorageEncrypted: false
+      PubliclyAccessible: true
+      BackupRetentionPeriod: 0
+  ScratchVolume:
+    Type: AWS::EC2::Volume
+    Properties:
+      AvailabilityZone: us-east-1a
+      Size: 40
+      Encrypted: false
+  AppKey:
+    Type: AWS::KMS::Key
+    Properties:
+      EnableKeyRotation: false
+      KeyPolicy:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { AWS: "arn:aws:iam::111122223333:root" }
+            Action: "kms:*"
+            Resource: "*"
+  AdminPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action: "*"
+            Resource: "*"
+  Trail:
+    Type: AWS::CloudTrail::Trail
+    Properties:
+      IsLogging: true
+      S3BucketName: !Ref DataBucket
+      EnableLogFileValidation: false
+      IsMultiRegionTrail: false
+  Topic:
+    Type: AWS::SNS::Topic
+  Queue:
+    Type: AWS::SQS::Queue
+  Logs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /acme/cfn
+  Fn:
+    Type: AWS::Lambda::Function
+    Properties:
+      Handler: index.handler
+      Runtime: python3.12
+      Role: arn:aws:iam::111122223333:role/x
+      Code: { ZipFile: "def handler(e, c): return 1" }

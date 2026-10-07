@@ -1,0 +1,267 @@
+{
+  "schema": "complyrim.audit.expected.v1",
+  "per_check_fixtures": {
+    "fail_must_fail": [
+      "CKV2_AWS_10",
+      "CKV2_AWS_11",
+      "CKV2_AWS_20",
+      "CKV2_AWS_6",
+      "CKV_AWS_1",
+      "CKV_AWS_10",
+      "CKV_AWS_101",
+      "CKV_AWS_104",
+      "CKV_AWS_109",
+      "CKV_AWS_111",
+      "CKV_AWS_119",
+      "CKV_AWS_129",
+      "CKV_AWS_145",
+      "CKV_AWS_149",
+      "CKV_AWS_157",
+      "CKV_AWS_158",
+      "CKV_AWS_16",
+      "CKV_AWS_163",
+      "CKV_AWS_167",
+      "CKV_AWS_168",
+      "CKV_AWS_169",
+      "CKV_AWS_171",
+      "CKV_AWS_173",
+      "CKV_AWS_176",
+      "CKV_AWS_178",
+      "CKV_AWS_18",
+      "CKV_AWS_19",
+      "CKV_AWS_193",
+      "CKV_AWS_197",
+      "CKV_AWS_2",
+      "CKV_AWS_20",
+      "CKV_AWS_21",
+      "CKV_AWS_223",
+      "CKV_AWS_224",
+      "CKV_AWS_23",
+      "CKV_AWS_234",
+      "CKV_AWS_238",
+      "CKV_AWS_24",
+      "CKV_AWS_25",
+      "CKV_AWS_250",
+      "CKV_AWS_251",
+      "CKV_AWS_26",
+      "CKV_AWS_27",
+      "CKV_AWS_272",
+      "CKV_AWS_28",
+      "CKV_AWS_285",
+      "CKV_AWS_289",
+      "CKV_AWS_290",
+      "CKV_AWS_293",
+      "CKV_AWS_304",
+      "CKV_AWS_338",
+      "CKV_AWS_35",
+      "CKV_AWS_36",
+      "CKV_AWS_37",
+      "CKV_AWS_40",
+      "CKV_AWS_5",
+      "CKV_AWS_51",
+      "CKV_AWS_58",
+      "CKV_AWS_67",
+      "CKV_AWS_7",
+      "CKV_AWS_79",
+      "CKV_AWS_8",
+      "CKV_AWS_84",
+      "CKV_AWS_91"
+    ],
+    "pass_must_not_fail": [
+      "CKV2_AWS_10",
+      "CKV2_AWS_11",
+      "CKV2_AWS_20",
+      "CKV2_AWS_6",
+      "CKV_AWS_1",
+      "CKV_AWS_10",
+      "CKV_AWS_101",
+      "CKV_AWS_104",
+      "CKV_AWS_109",
+      "CKV_AWS_111",
+      "CKV_AWS_119",
+      "CKV_AWS_129",
+      "CKV_AWS_145",
+      "CKV_AWS_149",
+      "CKV_AWS_157",
+      "CKV_AWS_158",
+      "CKV_AWS_16",
+      "CKV_AWS_163",
+      "CKV_AWS_167",
+      "CKV_AWS_168",
+      "CKV_AWS_169",
+      "CKV_AWS_171",
+      "CKV_AWS_173",
+      "CKV_AWS_176",
+      "CKV_AWS_178",
+      "CKV_AWS_18",
+      "CKV_AWS_19",
+      "CKV_AWS_193",
+      "CKV_AWS_197",
+      "CKV_AWS_2",
+      "CKV_AWS_20",
+      "CKV_AWS_21",
+      "CKV_AWS_223",
+      "CKV_AWS_224",
+      "CKV_AWS_23",
+      "CKV_AWS_234",
+      "CKV_AWS_238",
+      "CKV_AWS_24",
+      "CKV_AWS_25",
+      "CKV_AWS_250",
+      "CKV_AWS_251",
+      "CKV_AWS_26",
+      "CKV_AWS_27",
+      "CKV_AWS_272",
+      "CKV_AWS_28",
+      "CKV_AWS_285",
+      "CKV_AWS_289",
+      "CKV_AWS_290",
+      "CKV_AWS_293",
+      "CKV_AWS_304",
+      "CKV_AWS_338",
+      "CKV_AWS_35",
+      "CKV_AWS_36",
+      "CKV_AWS_37",
+      "CKV_AWS_40",
+      "CKV_AWS_5",
+      "CKV_AWS_51",
+      "CKV_AWS_58",
+      "CKV_AWS_67",
+      "CKV_AWS_7",
+      "CKV_AWS_79",
+      "CKV_AWS_8",
+      "CKV_AWS_84",
+      "CKV_AWS_91"
+    ]
+  },
+  "planted": {
+    "terraform/app-bad/main.tf": {
+      "aws_security_group.open_admin": [
+        "CKV_AWS_24",
+        "CKV_AWS_25",
+        "CKV_AWS_23"
+      ],
+      "aws_s3_bucket_acl.data": [
+        "CKV_AWS_20"
+      ],
+      "aws_s3_bucket.data": [
+        "CKV_AWS_18",
+        "CKV_AWS_21",
+        "CKV_AWS_145"
+      ],
+      "aws_db_instance.main": [
+        "CKV_AWS_16",
+        "CKV_AWS_17",
+        "CKV_AWS_157",
+        "CKV_AWS_161"
+      ],
+      "aws_ebs_volume.scratch": [
+        "CKV_AWS_3"
+      ],
+      "aws_kms_key.app": [
+        "CKV_AWS_7"
+      ],
+      "aws_iam_policy.admin_all": [
+        "CKV_AWS_355",
+        "CKV_AWS_63",
+        "CKV_AWS_62"
+      ],
+      "aws_cloudtrail.main": [
+        "CKV_AWS_36",
+        "CKV_AWS_67"
+      ],
+      "aws_lb_listener.http": [
+        "CKV_AWS_2"
+      ],
+      "aws_instance.web": [
+        "CKV_AWS_79",
+        "CKV_AWS_8"
+      ],
+      "aws_cloudwatch_log_group.app": [
+        "CKV_AWS_158",
+        "CKV_AWS_338"
+      ],
+      "aws_sns_topic.alerts": [
+        "CKV_AWS_26"
+      ],
+      "aws_sqs_queue.jobs": [
+        "CKV_AWS_27"
+      ],
+      "aws_dynamodb_table.orders": [
+        "CKV_AWS_119",
+        "CKV_AWS_28"
+      ]
+    },
+    "terraform/app-good/main.tf": {
+      "_all": "no failed checks expected on the listed resources (some checkov checks may still fire on missing optional hardening)"
+    },
+    "terraform/modules-bad/modules/bucket/main.tf": {
+      "aws_s3_bucket_acl.this": [
+        "CKV_AWS_20",
+        "CKV_AWS_57"
+      ]
+    },
+    "cloudformation/bad.yaml": {
+      "DataBucket": [
+        "CKV_AWS_20",
+        "CKV_AWS_18",
+        "CKV_AWS_21",
+        "CKV_AWS_19"
+      ],
+      "AdminSG": [
+        "CKV_AWS_24",
+        "CKV_AWS_25"
+      ],
+      "MainDb": [
+        "CKV_AWS_16",
+        "CKV_AWS_17"
+      ],
+      "ScratchVolume": [
+        "CKV_AWS_3"
+      ],
+      "AppKey": [
+        "CKV_AWS_7"
+      ],
+      "Trail": [
+        "CKV_AWS_36",
+        "CKV_AWS_67"
+      ],
+      "Topic": [
+        "CKV_AWS_26"
+      ],
+      "Queue": [
+        "CKV_AWS_27"
+      ]
+    },
+    "cloudformation/bad.json": {
+      "JsonBucket": [
+        "CKV_AWS_20",
+        "CKV_AWS_57"
+      ],
+      "JsonVolume": [
+        "CKV_AWS_3"
+      ],
+      "JsonSG": [
+        "CKV_AWS_24"
+      ]
+    },
+    "cdk-synth/cdk.out/AppStack.template.json": {
+      "Bucket83908E77": [
+        "CKV_AWS_20"
+      ],
+      "DbInstance": [
+        "CKV_AWS_16",
+        "CKV_AWS_17"
+      ],
+      "Key961B73FD": [
+        "CKV_AWS_7"
+      ]
+    }
+  },
+  "unsupported_by_design": [
+    "kubernetes/",
+    "dockerfile/",
+    "helm/"
+  ],
+  "notes": "unsupported_by_design: ComplyRim selects only terraform / terraform-plan / cloudformation checkov runners (_worker_main._select_runners). Product behaviour (reject vs silent ignore) is under test."
+}

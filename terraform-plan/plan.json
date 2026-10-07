@@ -1,0 +1,89 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.5.0",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "aws_security_group.open_ssh",
+          "mode": "managed",
+          "type": "aws_security_group",
+          "name": "open_ssh",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 1,
+          "values": {
+            "name": "open-ssh",
+            "description": "allow ssh from anywhere",
+            "ingress": [
+              {
+                "cidr_blocks": ["0.0.0.0/0"],
+                "description": "",
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "from_port": 22,
+                "to_port": 22,
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false
+              }
+            ],
+            "egress": []
+          }
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "aws_security_group.open_ssh",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "open_ssh",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "name": "open-ssh",
+          "description": "allow ssh from anywhere",
+          "ingress": [
+            {
+              "cidr_blocks": ["0.0.0.0/0"],
+              "description": "",
+              "ipv6_cidr_blocks": [],
+              "prefix_list_ids": [],
+              "from_port": 22,
+              "to_port": 22,
+              "protocol": "tcp",
+              "security_groups": [],
+              "self": false
+            }
+          ],
+          "egress": []
+        },
+        "after_unknown": {},
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    }
+  ],
+  "configuration": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "aws_security_group.open_ssh",
+          "mode": "managed",
+          "type": "aws_security_group",
+          "name": "open_ssh",
+          "provider_config_key": "aws",
+          "expressions": {}
+        }
+      ]
+    }
+  },
+  "relevant_attributes": [],
+  "timestamp": "2026-09-12T00:00:00Z",
+  "applyable": true,
+  "complete": true,
+  "errored": false
+}

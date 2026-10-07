@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: good
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: good}
+  template:
+    metadata:
+      labels: {app: good}
+    spec:
+      automountServiceAccountToken: false
+      securityContext: {runAsNonRoot: true, seccompProfile: {type: RuntimeDefault}}
+      containers:
+        - name: app
+          image: nginx@sha256:0000000000000000000000000000000000000000000000000000000000000000
+          resources: {limits: {cpu: "500m", memory: 256Mi}, requests: {cpu: 100m, memory: 128Mi}}
+          securityContext: {allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, runAsUser: 10001, capabilities: {drop: [ALL]}}
+          livenessProbe: {httpGet: {path: /, port: 80}}
+          readinessProbe: {httpGet: {path: /, port: 80}}

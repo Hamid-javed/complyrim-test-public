@@ -1,0 +1,52 @@
+{
+  "Resources": {
+    "Bucket83908E77": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl": "PublicRead"
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "AppStack/Bucket/Resource"
+      }
+    },
+    "DbInstance": {
+      "Type": "AWS::RDS::DBInstance",
+      "Properties": {
+        "DBInstanceClass": "db.t3.micro",
+        "Engine": "postgres",
+        "AllocatedStorage": "20",
+        "StorageEncrypted": false,
+        "PubliclyAccessible": true,
+        "MasterUsername": "pg",
+        "MasterUserPassword": "x"
+      },
+      "Metadata": {
+        "aws:cdk:path": "AppStack/Db/Resource"
+      }
+    },
+    "Key961B73FD": {
+      "Type": "AWS::KMS::Key",
+      "Properties": {
+        "EnableKeyRotation": false,
+        "KeyPolicy": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": "arn:aws:iam::111122223333:root"
+              },
+              "Action": "kms:*",
+              "Resource": "*"
+            }
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "AppStack/Key/Resource"
+      }
+    }
+  }
+}

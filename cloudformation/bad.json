@@ -1,0 +1,34 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "JsonBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "acme-json-bucket",
+        "AccessControl": "PublicReadWrite"
+      }
+    },
+    "JsonVolume": {
+      "Type": "AWS::EC2::Volume",
+      "Properties": {
+        "AvailabilityZone": "us-east-1a",
+        "Size": 10,
+        "Encrypted": false
+      }
+    },
+    "JsonSG": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "open",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    }
+  }
+}
